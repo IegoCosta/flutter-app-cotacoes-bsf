@@ -1,16 +1,21 @@
-# app_cotacoes
+# App de Cotações – BSF
 
-A new Flutter project.
+Aplicativo Flutter criado como desafio técnico para o Talent Lab 2025 da BSF.
 
-## Getting Started
+## 📱 Funcionalidade
 
-This project is a starting point for a Flutter application.
+Este app permite ao usuário consultar cotações financeiras (ex: USD, EUR, BRL) em tempo real.
 
-A few resources to get you started if this is your first Flutter project:
+## 📦 Recursos usados
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter + Dart
+- Material Design 3
+- API pública de câmbio (ExchangeRate-API)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 Como rodar
+
+```bash
+git clone https://github.com/seu-usuario/flutter-app-cotacoes-bsf.git
+cd flutter-app-cotacoes-bsf
+flutter pub get
+flutter run
