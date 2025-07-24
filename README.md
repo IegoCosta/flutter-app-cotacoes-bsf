@@ -1,21 +1,48 @@
-# App de Cotações – BSF
+# 📱 App de Cotações – BSF
 
-Aplicativo Flutter criado como desafio técnico para o Talent Lab 2025 da BSF.
+Aplicativo Flutter desenvolvido como parte do desafio técnico do **Talent Lab 2025** da BSF.  
+Seu objetivo é permitir a consulta de **cotações financeiras** (ex: USD, EUR, BRL) em tempo real, utilizando uma **API pública**.
 
-## 📱 Funcionalidade
+---
 
-Este app permite ao usuário consultar cotações financeiras (ex: USD, EUR, BRL) em tempo real.
+## ✅ Funcionalidades (até o Dia 2)
 
-## 📦 Recursos usados
+- Tela inicial com **boas-vindas e tema institucional (azul e branco)**.
+- Consumo da **API ExchangeRate-API** para buscar cotações.
+- Exibição das moedas em uma **lista dinâmica (`ListView`)**.
+- Código bem estruturado e separado em arquivos por responsabilidade.
+- Botão de atualizar cotacões
+
+---
+
+## 🚀 Tecnologias utilizadas
 
 - Flutter + Dart
 - Material Design 3
-- API pública de câmbio (ExchangeRate-API)
+- Pacote `http` para consumo de API
+- Organização em pastas: `modelos`, `servicos`, `telas`
 
-## 🚀 Como rodar
+---
+
+## 🌐 API utilizada
+
+- [ExchangeRate API (gratuita)](https://www.exchangerate-api.com/)
+- Endpoint usado:  
+  `https://api.exchangerate-api.com/v4/latest/USD`
+
+---
+
+## 🛠️ Como rodar o projeto
 
 ```bash
+# Clone o repositório
 git clone https://github.com/seu-usuario/flutter-app-cotacoes-bsf.git
+
+# Acesse a pasta do projeto
 cd flutter-app-cotacoes-bsf
+
+# Instale as dependências
 flutter pub get
+
+# Execute o aplicativo
 flutter run
