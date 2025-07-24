@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'tela_principal.dart';
 
-/// Tela de boas-vindas com mensagem e botão para ir às cotações.
+/// Tela de boas-vindas com navegação para a tela principal.
 class TelaBoasVindas extends StatelessWidget {
   const TelaBoasVindas({super.key});
 
@@ -23,15 +23,11 @@ class TelaBoasVindas extends StatelessWidget {
               const Text(
                 'Bem-vindo ao App de Cotações da BSF!',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.blueAccent,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blueAccent),
               ),
               const SizedBox(height: 12),
               Text(
-                'Acompanhe as cotações das principais moedas em tempo real.',
+                'Veja as cotações atualizadas de mais de 150 moedas do mundo todo.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 16, color: Colors.grey[800]),
               ),
@@ -40,22 +36,12 @@ class TelaBoasVindas extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => const TelaPrincipal(),
-                    ),
+                    MaterialPageRoute(builder: (_) => const TelaPrincipal()),
                   );
                 },
                 icon: const Icon(Icons.arrow_forward),
                 label: const Text('Consultar cotações'),
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  backgroundColor: Colors.blue,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
+              )
             ],
           ),
         ),

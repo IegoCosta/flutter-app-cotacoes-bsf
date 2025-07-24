@@ -5,13 +5,25 @@ Seu objetivo é permitir a consulta de **cotações financeiras** (ex: USD, EUR,
 
 ---
 
-## ✅ Funcionalidades (até o Dia 2)
+## 🚀 Funcionalidades
 
-- Tela inicial com **boas-vindas e tema institucional (azul e branco)**.
-- Consumo da **API ExchangeRate-API** para buscar cotações.
-- Exibição das moedas em uma **lista dinâmica (`ListView`)**.
-- Código bem estruturado e separado em arquivos por responsabilidade.
-- Botão de atualizar cotacões
+### ✅ Dia 1 — Tela de boas-vindas
+- Interface com tema azul e branco institucional
+- Tela inicial com ícone, título e botão de acesso às cotações
+
+### ✅ Dia 2 — Listagem de moedas
+- Consumo da [ExchangeRate API](https://www.exchangerate-api.com/)
+- Exibição de **todas as moedas disponíveis** na API
+- Nomes completos exibidos (Dólar Americano, Euro, etc.)
+- Botão para atualizar as cotações
+
+### ✅ Dia 3 — Tela de detalhes
+- Navegação ao tocar em uma moeda
+- Tela detalhada com:
+  - Código da moeda
+  - Nome completo
+  - Valor em relação ao USD
+  - Data da cotação
 
 ---
 

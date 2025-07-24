@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'telas/tela_boas_vindas.dart';
 
-/// Função principal que inicia o app.
+/// Função principal do aplicativo.
 void main() {
   runApp(const AppCotacoes());
 }
 
-/// Widget raiz com tema azul e branco e tela de boas-vindas.
+/// Widget raiz do app com tema institucional.
 class AppCotacoes extends StatelessWidget {
   const AppCotacoes({super.key});
 
