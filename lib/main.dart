@@ -1,34 +1,36 @@
 import 'package:flutter/material.dart';
 import 'telas/tela_boas_vindas.dart';
 
-/// Função principal do aplicativo.
 void main() {
   runApp(const AppCotacoes());
 }
 
-/// Widget raiz do app com tema institucional.
 class AppCotacoes extends StatelessWidget {
   const AppCotacoes({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'BSF - Cotações Financeiras',
+      title: 'FX - Cotações Financeiras',
       debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.dark,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF121212),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFFF6F00), // Laranja Inter
+          brightness: Brightness.dark,
+        ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.blue,
+          backgroundColor: Color(0xFF121212),
           elevation: 2,
-          titleTextStyle: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+          centerTitle: true,
+        ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(color: Colors.white),
         ),
         fontFamily: 'Roboto',
-        useMaterial3: true,
       ),
       home: const TelaBoasVindas(),
     );

@@ -1,50 +1,43 @@
 import 'package:flutter/material.dart';
+import '../modelos/moeda.dart';
+import '../util/nomes_moedas.dart';
 
-/// Tela que exibe detalhes de uma moeda selecionada.
 class TelaDetalhes extends StatelessWidget {
-  final String codigo;
-  final String? nomeCompleto;
-  final double valor;
-  final String data;
+  final Moeda moeda;
 
-  const TelaDetalhes({
-    super.key,
-    required this.codigo,
-    this.nomeCompleto,
-    required this.valor,
-    required this.data,
-  });
+  const TelaDetalhes({super.key, required this.moeda});
 
   @override
   Widget build(BuildContext context) {
-    final titulo = nomeCompleto != null ? '$nomeCompleto ($codigo)' : codigo;
+    final cor = Theme.of(context).colorScheme.primary;
+    final nome = nomesMoedas[moeda.codigo];
+    final titulo = nome != null ? '$nome (${moeda.codigo})' : moeda.codigo;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detalhes da Moeda'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Detalhes da Moeda')),
       body: Padding(
         padding: const EdgeInsets.all(24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Icon(Icons.monetization_on, size: 80, color: Colors.blue.shade700),
-            const SizedBox(height: 16),
+            Icon(Icons.monetization_on, size: 80, color: cor),
+            const SizedBox(height: 24),
             Text(
               titulo,
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 24),
-            const Text('Cotacao atual:', style: TextStyle(fontSize: 18)),
+            const SizedBox(height: 32),
+            Text('Cotação atual:',
+                style: TextStyle(fontSize: 16, color: cor)),
             const SizedBox(height: 8),
             Text(
-              valor.toStringAsFixed(2),
-              style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              moeda.valor.toStringAsFixed(2),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 24),
-            Text('Data da cotacao: $data', style: const TextStyle(fontSize: 16)),
+            Text('Data da cotação: ${moeda.data}',
+                style: const TextStyle(fontSize: 16, color: Colors.white70)),
           ],
         ),
       ),

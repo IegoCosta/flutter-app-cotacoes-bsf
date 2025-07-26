@@ -1,4 +1,5 @@
-final Map<String, String> nomesMoedas = {
+// Mapeia os códigos das moedas para seus nomes completos em português.
+const Map<String, String> nomesMoedas = {
   'AED': 'Dirham dos Emirados Árabes Unidos',
   'AFN': 'Afegane Afegão',
   'ALL': 'Lek Albanês',

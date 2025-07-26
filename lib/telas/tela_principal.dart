@@ -4,7 +4,6 @@ import '../servicos/cotacao_servico.dart';
 import '../util/nomes_moedas.dart';
 import 'tela_detalhes.dart';
 
-/// Tela principal que exibe a lista de cotações.
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({super.key});
 
@@ -29,15 +28,13 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
 
   @override
   Widget build(BuildContext context) {
+    final cor = Theme.of(context).colorScheme.primary;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cotações em Tempo Real'),
-        centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: _atualizar,
-          )
+          IconButton(onPressed: _atualizar, icon: const Icon(Icons.refresh)),
         ],
       ),
       body: FutureBuilder<List<Moeda>>(
@@ -51,33 +48,32 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           }
 
           final moedas = snapshot.data!;
-
           return ListView.separated(
             padding: const EdgeInsets.all(16),
             itemCount: moedas.length,
-            separatorBuilder: (_, __) => const Divider(),
+            separatorBuilder: (_, __) => const Divider(color: Colors.white24),
             itemBuilder: (context, index) {
               final moeda = moedas[index];
               final nome = nomesMoedas[moeda.codigo];
-              final titulo = nome != null ? '$nome - ${moeda.codigo}' : moeda.codigo;
+              final titulo = nome != null ? '$nome (${moeda.codigo})' : moeda.codigo;
 
-              return ListTile(
-                leading: const Icon(Icons.attach_money, color: Colors.blue),
-                title: Text(titulo),
-                trailing: Text(moeda.valor.toStringAsFixed(2)),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => TelaDetalhes(
-                        codigo: moeda.codigo,
-                        nomeCompleto: nome,
-                        valor: moeda.valor,
-                        data: moeda.data,
+              return Card(
+                color: Colors.grey[900],
+                elevation: 3,
+                child: ListTile(
+                  leading: Icon(Icons.currency_exchange, color: cor),
+                  title: Text(titulo, style: const TextStyle(color: Colors.white)),
+                  subtitle: Text('R\$ ${moeda.valor.toStringAsFixed(2)}'),
+                  trailing: const Icon(Icons.arrow_forward_ios, color: Colors.white54, size: 16),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => TelaDetalhes(moeda: moeda),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               );
             },
           );
